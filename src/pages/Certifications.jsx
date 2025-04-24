@@ -2,48 +2,44 @@ import React from 'react';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 import { FaCertificate, FaExternalLinkAlt } from 'react-icons/fa';
-import './Certifications.css';
+import './Certifications.css'; // Keep your CSS import
 
 const certifications = [
   {
     title: "Python for Data Science, AI & Development",
     organization: "IBM (via Coursera)",
     year: "2024",
-    link: "https://coursera.org/verify/3VB2GJGBYELE",
+    link: "/certificates/python.pdf", // Ensure this file is in public/certificates/
     image: "/certificates/python.png"
   },
-  
   {
     title: "HTML, CSS, and Js for Web Developers",
     organization: "Johns Hopkins University (via Coursera)",
     year: "2024",
-    link: "https://coursera.org/verify/3P15VA3PAEXP",
+    link: "/certificates/html.pdf",
     image: "/certificates/fullstack.png"
   },
-  
   {
     title: "Problem Solving (Basic)",
     organization: "HackerRank",
     year: "2025",
-    link: "#", // You can replace this with the actual link if available
+    link: "certificates/problem.pdf",
     image: "/certificates/hackerrank-problem-solving.png"
   },
   {
     title: "Cloud Computing",
     organization: "NPTEL - IIT Kharagpur",
     year: "2024",
-    link: "#", // Optional: add verification link here if available
+    link: "/certificates/cloud.pdf",
     image: "/certificates/nptel-cloud-computing.png"
   },
-  
   {
     title: "Data Structures Using Java",
     organization: "CipherSchools",
     year: "2024",
-    link: "#", // Optional: insert certificate verification link if available
+    link: "/certificates/dsa.pdf",
     image: "/certificates/cipherschools-java.png"
   }
-  
 ];
 
 const sliderSettings = {
@@ -57,17 +53,11 @@ const sliderSettings = {
   responsive: [
     {
       breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
+      settings: { slidesToShow: 2 }
     },
     {
       breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
+      settings: { slidesToShow: 1 }
     }
   ]
 };
@@ -116,14 +106,16 @@ const Certifications = () => {
                   <div className="cert-image-container">
                     <img src={cert.image} alt={cert.title} className="cert-image" />
                     <div className="cert-overlay">
-                      <a 
-                        href={cert.link} 
-                        target="_blank" 
-                        rel="noreferrer"
-                        className="view-button"
-                      >
-                        <FaExternalLinkAlt /> View
-                      </a>
+                      {cert.link !== "#" && (
+                        <a 
+                          href={cert.link} 
+                          target="_blank" 
+                          rel="noreferrer"
+                          className="view-button"
+                        >
+                          <FaExternalLinkAlt /> View
+                        </a>
+                      )}
                     </div>
                   </div>
                   <div className="cert-details">
