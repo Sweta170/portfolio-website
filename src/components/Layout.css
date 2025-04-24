@@ -1,0 +1,59 @@
+/* Layout root */
+.layout-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Layout container */
+.layout-container {
+  position: relative;
+  flex: 1; /* Takes all available space */
+  width: 100%;
+  padding-top: var(--navbar-height, 80px); /* Account for navbar */
+}
+
+/* Full width content */
+.full-width-content {
+  width: 100%;
+  min-height: calc(100vh - var(--navbar-height, 80px) - var(--footer-height, 60px));
+}
+
+/* Decorative elements */
+.layout-decoration {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,188,212,0.1) 0%, rgba(0,188,212,0) 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.layout-decoration.top-left {
+  top: -150px;
+  left: -150px;
+}
+
+.layout-decoration.bottom-right {
+  bottom: -150px;
+  right: -150px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .layout-decoration {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .layout-decoration.top-left {
+    top: -100px;
+    left: -100px;
+  }
+  
+  .layout-decoration.bottom-right {
+    bottom: -100px;
+    right: -100px;
+  }
+}

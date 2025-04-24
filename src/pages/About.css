@@ -1,0 +1,231 @@
+/* Full-width About Section */
+.about-section {
+    width: 100vw;
+    min-height: calc(100vh - var(--navbar-height));
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    display: flex;
+    align-items: center;
+  }
+  
+  .dark-theme .about-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+  
+  /* Centered Content Container */
+  .about-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Header Styles */
+  .about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+  
+  .greeting {
+    color: var(--primary-color);
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+  }
+  
+  /* Content Layout */
+  .about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .about-text {
+    flex: 1 1 500px;
+  }
+  
+  .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+  }
+  
+  /* Interests Grid */
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .interest-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .dark-theme .interest-card {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .interest-icon {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .interest-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  .interest-card p {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+  }
+  
+  /* Image Section */
+  .about-image-container {
+    flex: 1 1 400px;
+    position: relative;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .profile-image {
+    width: 100%;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease;
+  }
+  
+  .image-border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--primary-color);
+    border-radius: 20px;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    transition: all 0.5s ease;
+  }
+  
+  .about-image-container:hover .profile-image {
+    transform: scale(1.03);
+  }
+  
+  .about-image-container:hover .image-border {
+    top: 15px;
+    left: 15px;
+  }
+  
+  /* Name Highlight Effect */
+  .highlight-name {
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .highlight-name::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--secondary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .highlight-name:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .about-header h1 {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 3rem 0;
+    }
+    
+    .about-header h1 {
+      font-size: 2rem;
+    }
+    
+    .tagline {
+      font-size: 1rem;
+    }
+    
+    .about-content {
+      flex-direction: column-reverse;
+      gap: 2rem;
+    }
+    
+    .image-border {
+      top: 10px;
+      left: 10px;
+    }
+    
+    .interests-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-section {
+      padding: 2rem 0;
+    }
+    
+    .about-container {
+      padding: 0 1.5rem;
+    }
+    
+    .about-header h1 {
+      font-size: 1.8rem;
+    }
+    
+    .interest-card {
+      padding: 1rem;
+    }
+  }
